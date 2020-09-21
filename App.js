@@ -1,7 +1,10 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Dimensions, StyleSheet } from "react-native";
 import { useFonts } from "@use-expo/font";
 import { AppLoading } from "expo";
+import DatePicker from "./components/DatePicker";
+
+const W = Dimensions.get("window").width;
 
 const customFont = {
   "Press-Start2p": require("./assets/fonts/PressStart2P-Regular.ttf"),
@@ -15,23 +18,24 @@ export default function App() {
   }
 
   return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: "center",
-        backgroundColor: "#ffbd12",
-      }}
-    >
-      <Text
-        style={{
-          fontFamily: "Press-Start2p",
-          fontSize: 24,
-          marginTop: 80,
-          paddingHorizontal: 20,
-        }}
-      >
-        {`Are You a Quarantine Pro?`}
-      </Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>{`Are You a Quarantine Pro?`}</Text>
+      <DatePicker />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    backgroundColor: "#ffbd12",
+  },
+  title: {
+    fontFamily: "Press-Start2p",
+    fontSize: 24,
+    marginTop: 80,
+    paddingHorizontal: 20,
+    lineHeight: 30,
+  },
+});
