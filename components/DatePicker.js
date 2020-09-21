@@ -12,12 +12,14 @@ import {
   FontAwesome,
 } from "@expo/vector-icons";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import moment from "moment";
 
 const W = Dimensions.get("window").width;
 
 const DatePicker = props => {
   const [pickedDate, setPickedDate] = useState(null);
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  const [days, setDays] = useState("");
 
   function showDatePicker() {
     setDatePickerVisibility(true);
@@ -31,6 +33,16 @@ const DatePicker = props => {
     console.log("A date has been picked: ", date);
     hideDatePicker();
     setPickedDate(date);
+  }
+
+  function daysRemaining() {
+    // user's input
+    let eventdate = moment(pickedDate);
+    // getting current date
+    let todaysdate = moment();
+    let remainingDays = todaysdate.diff(eventdate, "days");
+    setDays(remainingDays);
+    return remainingDays;
   }
 
   return (
@@ -48,6 +60,21 @@ const DatePicker = props => {
         onCancel={hideDatePicker}
         headerTextIOS='When did you start isolating?'
       />
+      <View style={styles.showDateContainer}>
+        <Text style={styles.showDateText}>
+          You started isolating on{" "}
+          {pickedDate && (
+            <Text style={styles.showDateText}>
+              {moment(pickedDate).format("YYYY-MM-DD")}.
+            </Text>
+          )}
+        </Text>
+        <TouchableWithoutFeedback onPress={daysRemaining}>
+          <View style={styles.evaluateButtonContainer}>
+            <Text style={styles.evaluateButtonText}>Check your level</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      </View>
     </>
   );
 };
@@ -77,5 +104,45 @@ const styles = StyleSheet.create({
   },
   icon: {
     color: "#000",
+  },
+
+  showDateContainer: {
+    marginTop: 20,
+    backgroundColor: "#F95A2C",
+    width: W / 1.2,
+    height: W / 2,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "#000",
+
+    alignItems: "center",
+  },
+  showDateText: {
+    fontFamily: "Press-Start2p",
+    fontSize: 14,
+    padding: 10,
+    marginTop: 20,
+    lineHeight: 20,
+  },
+  evaluateButtonContainer: {
+    marginTop: 20,
+    backgroundColor: "#1947E5",
+    width: W / 1.4,
+    height: W / 6,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "#000",
+    borderBottomWidth: 5,
+    borderBottomColor: "#000",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+  },
+  evaluateButtonText: {
+    color: "#fff",
+    fontFamily: "Press-Start2p",
+    fontSize: 14,
+    paddingHorizontal: 10,
+    lineHeight: 20,
   },
 });
