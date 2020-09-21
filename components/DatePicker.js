@@ -6,13 +6,10 @@ import {
   Dimensions,
   TouchableWithoutFeedback,
 } from "react-native";
-import {
-  Fontisto,
-  MaterialCommunityIcons,
-  FontAwesome,
-} from "@expo/vector-icons";
+import { Fontisto } from "@expo/vector-icons";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import moment from "moment";
+import QuarantineLevel from "./QuarantineLevel";
 
 const W = Dimensions.get("window").width;
 
@@ -75,11 +72,10 @@ const DatePicker = props => {
           </View>
         </TouchableWithoutFeedback>
       </View>
+      <QuarantineLevel days={days} />
     </>
   );
 };
-
-export default DatePicker;
 
 const styles = StyleSheet.create({
   pickerContainer: {
@@ -146,3 +142,5 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
 });
+
+export default DatePicker;
