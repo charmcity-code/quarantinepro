@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: "Press-Start2p",
-    fontSize: 24,
-    marginTop: 80,
+    fontSize: 20,
+    marginTop: 50,
     paddingHorizontal: 20,
     lineHeight: 30,
   },

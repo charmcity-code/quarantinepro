@@ -79,7 +79,7 @@ const DatePicker = props => {
 
 const styles = StyleSheet.create({
   pickerContainer: {
-    marginTop: 20,
+    marginTop: 15,
     backgroundColor: "#00c6ae",
     width: W / 1.2,
     height: W / 4,
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
   },
 
   showDateContainer: {
-    marginTop: 20,
+    marginTop: 15,
     backgroundColor: "#F95A2C",
     width: W / 1.2,
     height: W / 2,
@@ -117,14 +117,13 @@ const styles = StyleSheet.create({
     fontFamily: "Press-Start2p",
     fontSize: 14,
     padding: 10,
-    marginTop: 20,
+    marginTop: 5,
     lineHeight: 20,
   },
   evaluateButtonContainer: {
-    marginTop: 20,
     backgroundColor: "#1947E5",
     width: W / 1.4,
-    height: W / 6,
+    height: W / 5,
     borderRadius: 10,
     borderWidth: 1,
     borderColor: "#000",
@@ -137,8 +136,8 @@ const styles = StyleSheet.create({
   evaluateButtonText: {
     color: "#fff",
     fontFamily: "Press-Start2p",
-    fontSize: 14,
-    paddingHorizontal: 10,
+    fontSize: 13,
+    paddingHorizontal: 2,
     lineHeight: 20,
   },
 });

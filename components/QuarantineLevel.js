@@ -12,7 +12,7 @@ const QuarantineLevel = props => {
           <MaterialCommunityIcons
             name='guy-fawkes-mask'
             color='#000'
-            size={54}
+            size={22}
           />
           <Text style={styles.resultText}>
             Quarantine Noob. Don't forget to wear a mask. Keep self-isolating.
@@ -22,7 +22,7 @@ const QuarantineLevel = props => {
     } else if (props.days >= 5 && props.days <= 7) {
       return (
         <>
-          <MaterialCommunityIcons name='glass-wine' color='#000' size={54} />
+          <MaterialCommunityIcons name='glass-wine' color='#000' size={22} />
           <Text style={styles.resultText}>
             Quarantine Connoisseur. Welcome to the (literal) dark side!
           </Text>
@@ -34,7 +34,7 @@ const QuarantineLevel = props => {
           <MaterialCommunityIcons
             name='seat-legroom-reduced'
             color='#000'
-            size={54}
+            size={22}
           />
           <Text style={styles.resultText}>
             Quarantine Proficient. AKA “What is pants?”
@@ -47,7 +47,7 @@ const QuarantineLevel = props => {
           <MaterialCommunityIcons
             name='star-circle-outline'
             color='#000'
-            size={54}
+            size={22}
           />
           <Text style={styles.resultText}>
             Quarantine Veteran. #StayHome became your life motto.
@@ -57,7 +57,7 @@ const QuarantineLevel = props => {
     } else if (props.days >= 23) {
       return (
         <>
-          <FontAwesome name='paint-brush' color='#000' size={54} />
+          <FontAwesome name='paint-brush' color='#000' size={22} />
           <Text style={styles.resultText}>
             THE ULTIMATE QUARANTINE PRO! You are part of the solution - thank
             you!
@@ -74,7 +74,8 @@ const QuarantineLevel = props => {
 
 const styles = StyleSheet.create({
   resultContainer: {
-    marginTop: 20,
+    marginTop: 15,
+    paddingTop: 10,
     backgroundColor: "#FF89BB",
     width: W / 1.2,
     height: W / 2,
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
   resultText: {
     color: "#fff",
     fontFamily: "Press-Start2p",
-    fontSize: 16,
+    fontSize: 14,
     padding: 15,
     lineHeight: 20,
   },
